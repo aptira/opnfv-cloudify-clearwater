@@ -27,6 +27,8 @@ log sudo apt-get update
 
 ctx logger info "[bono] Installing bono packages and other clearwater packages"
 log sudo DEBIAN_FRONTEND=noninteractive apt-get install bono restund --yes --force-yes -o DPkg::options::=--force-confnew
+log sudo sed -i  's/\(module \+auth.so\)/# \1/' /usr/share/clearwater/infrastructure/scripts/restund
+log sudo DEBIAN_FRONTEND=noninteractive apt-get install clearwater-management --yes --force-yes
 log sudo DEBIAN_FRONTEND=noninteractive apt-get install clearwater-management --yes --force-yes
 log sudo DEBIAN_FRONTEND=noninteractive apt-get install clearwater-snmpd --yes --force-yes
 ctx logger info "[bono] The installation packages is done correctly"
