@@ -99,11 +99,11 @@ dsl_definitions:
   openstack_config: &openstack_config
     username: { get_secret: keystone_username }
     password: { get_secret: keystone_password }
-    project_name: { get_secret: keystone_tenant_name }
+    project_name: { get_secret: keystone_project_name }
     auth_url: { get_secret: keystone_url }
     region: { get_secret: region }
-    user_domain_name: { get_secret: user_domain_name }
-    project_domain_name: { get_secret: project_domain_name }
+    user_domain_name: { get_secret: keystone_user_domain_name }
+    project_domain_name: { get_secret: keystone_project_domain_name }
     custom_configuration:
       keystone_client:
         insecure: true
